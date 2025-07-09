@@ -1,0 +1,251 @@
+.app__header {
+  width: 100%;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(15, 15, 15, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 65px; /* Slightly reduced height */
+  display: flex;
+  align-items: center;
+}
+
+/* Desktop specific styles */
+@media (min-width: 1024px) {
+  .app__header {
+    padding: 0 3rem;
+    height: 60px; /* Even more compact on desktop */
+  }
+}
+
+.app__header.scrolled {
+  background-color: rgba(15, 15, 15, 0.95);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.app__navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.app__navbar-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 11;
+}
+
+.app__navbar-logo a {
+  text-decoration: none;
+  color: var(--white-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: all 0.3s ease-in-out;
+  font-family: var(--font-mono);
+  padding: 0.5rem 0;
+}
+
+.app__navbar-logo a:hover {
+  color: var(--secondary-color);
+}
+
+.app__navbar-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.app__navbar-links li {
+  margin: 0;
+  position: relative;
+}
+
+.app__navbar-link {
+  color: var(--white-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app__navbar-link:hover {
+  color: var(--secondary-color);
+}
+
+.app__navbar-link.active {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: -5px;
+  height: 3px;
+  width: 30px;
+  background-color: var(--secondary-color);
+  border-radius: 3px;
+}
+
+/* Mobile menu styles */
+.app__navbar-menu {
+  display: none;
+  z-index: 1000;
+  cursor: pointer;
+  color: var(--white-color);
+  font-size: 1.8rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.app__navbar-menu:hover {
+  color: var(--secondary-color);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 400px;
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999;
+  padding: 6rem 2rem 2rem;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+}
+
+.mobile-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-menu li {
+  opacity: 0;
+}
+
+.mobile-link {
+  color: var(--white-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 0;
+  display: block;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+  color: var(--secondary-color);
+}
+
+.mobile-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+}
+
+/* Backdrop for mobile menu */
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.mobile-menu-backdrop.visible {
+  opacity: 1;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 900px) {
+  .app__navbar-links {
+    display: none;
+  }
+
+  .app__navbar-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Add backdrop when menu is open */
+  .app__header {
+    padding: 1rem 1.5rem;
+  }
+  
+  /* Adjust header when menu is open */
+  .app__header.scrolled {
+    background-color: rgba(15, 15, 15, 0.95);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app__navbar {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .app__navbar-menu {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .mobile-menu-overlay {
+    width: 80%;
+    padding: 1rem 1.5rem 2rem;
+    top: 60px; /* Match navbar height */
+    height: calc(100vh - 60px); /* Full height minus navbar */
+  }
+  
+  .mobile-link {
+    font-size: 1.1rem;
+    padding: 0.8rem 0;
+  }
+  
+  .app__navbar-logo a {
+    font-size: 1.3rem;
+  }
+}

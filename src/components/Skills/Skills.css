@@ -1,0 +1,279 @@
+.app__skills {
+  min-height: 100vh;
+  width: 100%;
+  padding: 6rem 2rem 4rem;
+  background: var(--bg-color);
+  color: var(--white-color);
+}
+
+.app__skills-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.app__skills-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app__skills-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.app__skills-header h2 span {
+  color: var(--secondary-color);
+}
+
+.app__skills-header p {
+  color: var(--gray-color);
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.app__skills-category {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Make both cards equal width and side by side */
+.app__skills-portfolio {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Style for section titles */
+.app__skills-content h3 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--white-color);
+}
+
+.app__skills-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--secondary-color);
+  border-radius: 3px;
+}
+
+.app__skills-category {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__skills-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--secondary-color);
+}
+
+.app__skills-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--white-color);
+}
+
+.app__skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.app__skills-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  color: var(--white-color);
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.app__skills-item:hover {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.app__skills-item.highlighted {
+  border-left: 3px solid var(--secondary-color);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.app__skills-item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.app__skills-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(100, 255, 218, 0.1);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.app__skills-icon svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+  margin: 0 auto;
+}
+
+.app__skills-icon i {
+  margin: 0;
+}
+
+.app__skills-item-header span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.app__skills-progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.app__skills-progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  position: relative;
+}
+
+.app__skills-percent {
+  position: absolute;
+  right: 0;
+  top: -25px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-color);
+  font-family: var(--font-mono);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+  .app__skills-portfolio {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 2rem auto 0;
+  }
+  
+  .app__skills-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: grid;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .app__skills {
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .app__skills-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .app__skills-portfolio {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app__skills-portfolio {
+    grid-template-columns: 1fr;
+  }
+  
+  .app__skills-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .app__skills {
+    padding: 4rem 1.25rem 2rem;
+  }
+
+  .app__skills-header h2 {
+    font-size: 2rem;
+  }
+
+  .app__skills-category {
+    padding: 1.25rem;
+  }
+
+  .app__skills-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .app__skills-item {
+    padding: 0.75rem;
+  }
+
+  .app__skills-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .app__skills-item-header span {
+    font-size: 0.95rem;
+  }
+
+  .app__skills-percent {
+    font-size: 0.7rem;
+  }
+}
