@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { FaCheckCircle, FaCode } from 'react-icons/fa';
-import { SiSelenium, SiCypress, SiPostman, SiJest, SiN8N } from 'react-icons/si';
-import { FaFile, FaShield, FaGaugeHigh, FaRobot } from 'react-icons/fa6';
+import { FaCheckCircle, FaCode, FaGitAlt, FaGithub } from 'react-icons/fa';
+import { SiSelenium, SiCypress, SiPostman, SiJest, SiN8N, SiFigma } from 'react-icons/si';
+import { FaFile, FaShield, FaGaugeHigh, FaRobot, FaPlay, FaSitemap } from 'react-icons/fa6';
 import { skillsData } from '../../data/skills';
 import './Skills.css';
 
@@ -11,9 +11,9 @@ const iconComponents: Record<string, React.ReactNode> = {
   'robot': <FaRobot />,
   'selenium': <SiSelenium />,
   'cypress': <SiCypress />,
-  'playwright': <FaCode />, // Using code icon as fallback
+  'playwright': <FaPlay />,
   'postman': <SiPostman />,
-  'jmeter': <FaGaugeHigh />, // Using gauge icon as fallback
+  'jmeter': <FaGaugeHigh />,
   'jest': <SiJest />,
   'api': <FaCode />,
   'speedometer': <FaGaugeHigh />,
@@ -21,6 +21,10 @@ const iconComponents: Record<string, React.ReactNode> = {
   'check-shield': <FaShield />,
   'n8n': <SiN8N />,
   'workflow': <FaCode />,
+  'uml': <FaSitemap />,
+  'git': <FaGitAlt />,
+  'github': <FaGithub />,
+  'figma': <SiFigma />,
   'default': <FaCode />
 };
 
@@ -55,31 +59,16 @@ const Skills = () => {
               <div className="app__skills-content">
                 <h3 className="bold-text">{category.title}</h3>
                 
-                <div className="app__skills-list">
+                <div className="app__skills-grid">
                   {category.skills.map((skill) => (
                     <div 
                       key={skill.name} 
                       className={`app__skills-item ${skill.isHighlighted ? 'app__skills-item--highlighted' : ''}`}
                     >
-                      <div className="app__skills-item-header">
-                        <div className={`app__skills-icon ${skill.isHighlighted ? 'app__skills-icon--highlighted' : ''}`}>
-                          {iconComponents[skill.icon] || iconComponents['default'] || <i className={`devicon-${skill.icon}-plain`}></i>}
-                        </div>
-                        <span className={skill.isHighlighted ? 'app__skills-name--highlighted' : ''}>{skill.name}</span>
+                      <div className="app__skills-icon">
+                        {iconComponents[skill.icon] || iconComponents['default'] || <i className={`devicon-${skill.icon}-plain`}></i>}
                       </div>
-                      <div className="app__skills-progress">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: 0.3 }}
-                          viewport={{ once: true }}
-                          className="app__skills-progress-bar"
-                          style={{
-                            background: `linear-gradient(90deg, var(--secondary-color) 0%, var(--secondary-dark-color) 100%)`,
-                          }}
-                        ></motion.div>
-                        <span className="app__skills-percent">{skill.level}%</span>
-                      </div>
+                      <span className="app__skills-name">{skill.name}</span>
                     </div>
                   ))}
                 </div>

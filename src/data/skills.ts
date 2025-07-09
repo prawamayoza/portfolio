@@ -32,6 +32,7 @@ export const skillsData: SkillCategory[] = [
       { name: 'Git', level: 85, icon: 'git' },
       { name: 'GitHub', level: 80, icon: 'github' },
       { name: 'Figma', level: 70, icon: 'figma' },
+      { name: 'UML Diagram', level: 75, icon: 'uml' },
       { name: 'n8n', level: 50, icon: 'n8n', isHighlighted: true },
       { name: 'Workflow Automation', level: 50, icon: 'workflow', isHighlighted: true },
     ],

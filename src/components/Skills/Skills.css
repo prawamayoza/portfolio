@@ -96,109 +96,75 @@
   color: var(--white-color);
 }
 
-.app__skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+.app__skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1.2rem;
   margin-top: 1.5rem;
 }
 
 .app__skills-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
-  color: var(--white-color);
-  outline: none !important;
-  box-shadow: none !important;
+  cursor: default;
 }
 
 .app__skills-item:hover {
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(100, 255, 218, 0.05);
+  border-color: var(--secondary-color);
+  transform: translateY(-3px);
 }
 
-.app__skills-item.highlighted {
-  border-left: 3px solid var(--secondary-color);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-*:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-.app__skills-item-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
+/* Remove the highlighted style since we want all items to look the same */
 
 .app__skills-icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   background: rgba(100, 255, 218, 0.1);
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
   color: var(--secondary-color);
-  font-size: 1.25rem;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
+  font-size: 1.3rem;
+  transition: all 0.2s ease;
+  margin-bottom: 0.8rem;
+}
+
+.app__skills-item:hover .app__skills-icon {
+  background: rgba(100, 255, 218, 0.15);
+  transform: scale(1.1);
 }
 
 .app__skills-icon svg {
   width: 1em;
   height: 1em;
   display: block;
-  margin: 0 auto;
 }
 
-.app__skills-icon i {
-  margin: 0;
+.app__skills-name {
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--gray-color);
+  line-height: 1.3;
+  margin-top: 0.3rem;
+  transition: all 0.2s ease;
+  word-break: break-word;
+  max-width: 100%;
+  padding: 0 0.2rem;
 }
 
-.app__skills-item-header span {
-  font-size: 1rem;
-  font-weight: 500;
+/* Remove the highlighted name style for consistency */
+.app__skills-item:hover .app__skills-name {
   color: var(--white-color);
 }
 
-.app__skills-progress {
-  width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-  margin-top: 0.5rem;
-}
-
-.app__skills-progress-bar {
-  height: 100%;
-  border-radius: 3px;
-  position: relative;
-}
-
-.app__skills-percent {
-  position: absolute;
-  right: 0;
-  top: -25px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--gray-color);
-  font-family: var(--font-mono);
-}
 
 /* Responsive styles */
 @media screen and (max-width: 1200px) {
